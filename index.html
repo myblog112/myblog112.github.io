@@ -32,7 +32,7 @@
 
     function makeQuizElem2(elemIdStr, encStr_1, obfStr_1, curScript_1)
     {      
-      alert(curScript_1.OuterHTML);
+      alert(curScript_1);
       // function myFunction() {
       // var x = document.getElementById("myDIV");
       var elem = document.getElementById(elemIdStr);
@@ -211,7 +211,7 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
 
 [end]
 </pre>
-[>] Testing: <a id="obfz002">How do you hide a div? Which style?</a><script>alert(document.currentScript); makeQuizElem2('obfz002','J2Rpc3BsYXk6bm9uZSc=','How do you hide a div? Which style?');</script>
+[>] Testing: <a id="obfz002">How do you hide a div? Which style?</a><script>makeQuizElem2('obfz002','J2Rpc3BsYXk6bm9uZSc=','How do you hide a div? Which style?', document.currentScript);</script>
 [/end]<div style='display:none;'>
 <!-- -- TESTING AREA OR BETAS START -- -->
 <!-- [<a id="obfz003" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem('obfz003','dW1icmVsbGE=');return false;" class=".quiz-href-1">&lt;hidden&gt;</a>] -->
