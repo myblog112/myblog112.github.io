@@ -22,11 +22,11 @@
 <script>
     function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
     {
-      alert('In MakeQuizElem');
+      //alert('In MakeQuizElem');
       // function myFunction() {
       // var x = document.getElementById("myDIV");
       var elem = document.getElementById(elemIdStr);
-      elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +");return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
+      elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
     }
 </script>
 
