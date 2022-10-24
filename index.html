@@ -32,11 +32,12 @@
 
     function makeQuizElem2(elemIdStr, encStr_1, obfStr_1, curScript_1)
     {      
-      alert(curScript_1);
+      // alert(curScript_1);
       // function myFunction() {
       // var x = document.getElementById("myDIV");
-      var elem = document.getElementById(elemIdStr);
+      var elem = document.CreateElement('<a>');
       elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
+      curScript_1.parentNode.insertBefore(elem, curScript_1);
     }
 </script>
 
