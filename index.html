@@ -4,6 +4,9 @@
     <title>My Crypto Testnets Page</title>
   
     <style>
+    body {
+      white-space: pre-wrap;
+    }
     pre {
       display: block;
       font-family: "Liberation Mono", monospace;
@@ -12,6 +15,7 @@
       /* comment within css */
       /* color: blue; */
     }
+    .quiz-href-1 { color: #000099; }
     </style>
     
   </head>
@@ -22,6 +26,8 @@
 Related: Javascript encrypt html: https://www.reddit.com/r/HTML/comments/8r7uol/password_protect_indexhtml/,, and it's docs: https://github.com/ricmoo/aes-js <br><br>
 Note: &lt;pre&gt; tag in html will 'swallow' github editor's auto-ident feature and will display it's inner text indented ... if it's indentend in github html 
   code editor so make sure to unindent the &lt;pre&gt;'s inner text, within github code editor. <br> <br>     
+
+[<a id="obfz001" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem('obfz001','dW1icmVsbGE=');return false;" class=".quiz-href-1">&lt;hidden&gt;</a>]
 
 <pre>
 Hopefully, this is 'top-level enough' (above hackmd.io, cryptpad, discord, etc.) ... so I'll be able to 'trackback' to it all the time ...
@@ -161,5 +167,78 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
 [end]
 </pre>
 [/end]
+<!-- -- JS HELPER FUNCTIONS START -- -->
+  <script>
+/*
+    function playIfAudio()
+    {
+//      alert('123');
+      var audio_elem_1 = document.getElementById('audio_1');
+
+      var audio_src_1 = audio_elem_1.getAttribute('src');
+      if(audio_src_1) // https://stackoverflow.com/a/5515349
+      {
+//         alert('Debug: There is audio.');
+           audio_elem_1.play();
+      }
+      else
+      {
+//         alert('Debug: There is no audio.');
+      }
+
+    }
+*/
+    function toggleQuizElem(elemIdStr, encStr_1)
+    {
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      var obf_1 = "&lt;hidden&gt;" 
+      if (elem.innerHTML === obf_1) {
+        // https://stackoverflow.com/a/62537645
+        // alert( decodeURIComponent( escape( atob( encStr_1 ))) );
+        // also, we don't want 'innerHTML' here because b64 encoded string can contain '<' and '>'
+        elem.innerText = decodeURIComponent(escape(atob(encStr_1)));
+      } else {
+        elem.innerHTML = obf_1;
+      }
+    }
+
+    function toggleShowImage(elemIdStr, img_fn_1)
+    {
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      var obf_1 = "&lt;img&gt;" 
+      if (elem.innerHTML === obf_1) {
+        elem.innerHTML = '<br><img src="' + img_fn_1 + '" /><br>'
+      } else {
+        elem.innerHTML = obf_1;
+      }
+    }
+
+    function playAudio_1(aud_fn_1)
+    {
+      var audio = new Audio(aud_fn_1);
+      audio.play();
+    }
+
+/*
+    function revealMiscData_1()
+    {
+       var elem_1 = document.getElementById("miscdata");
+
+       if(elem_1.style.display == "none") 
+       {
+         elem_1.style.display = "inline";
+       } 
+       else 
+       {
+         elem_1.style.display = "none";
+       }
+    }
+*/
+  </script>
+<!-- -- JS HELPER FUNCTIONS END -- -->
 </body>
 </html>
