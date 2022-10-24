@@ -43,7 +43,7 @@ Hopefully, this is 'top-level enough' (above hackmd.io, cryptpad, discord, etc.)
 
 [>] Больной факт он, что если у меня нету 8-9k$ как однажды было ... то тогда всеравно остается тай-чи (или должен оставаться по крайней мере ... или Я опять между 
 стульев. Сам себя провалил туда ... типа собака ду-квон -- собака ду-квон.
-[>>> 1.1.] ^^ [<a id="obfz004" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem2('obfz004','J05vLWJhZC1wYXJ0cyBmcmFtZSBydXB0dXJlJyAmJiAnVGFpLWNoaSBrYXRhJw==','&lt;please_obfuscate_me_for_longhand&gt;');return false;" class=".quiz-href-1">&lt;hidden&gt;</a>] ...
+[>>> 1.1.] ^^ [<a id="obfz004" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem2('obfz004','J05vLWJhZC1wYXJ0cyBmcmFtZSBydXB0dXJlJyAmJiAnVGFpLWNoaSBrYXRhJw==','&lt;please_obfuscate_me_for_longhand&gt;');return false;" class=".quiz-href-1">&lt;please_obfuscate_me_for_longhand&gt;</a>] ...
 
 [>] Testing: [<a id="obfz002" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem('obfz002','dW1icmVsbGE=');return false;" class=".quiz-href-1">&lt;hidden&gt;</a>]
 
@@ -218,13 +218,13 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
       // var x = document.getElementById("myDIV");
       var elem = document.getElementById(elemIdStr);
       var obf_1 = "&lt;hidden&gt;" // still need this for the 'if' that is below ... 
-      if (elem.innerHTML === obf_1) {
+      if (elem.innerText === obfStr_1) {
         // https://stackoverflow.com/a/62537645
         // alert( decodeURIComponent( escape( atob( encStr_1 ))) );
         // also, we don't want 'innerHTML' here because b64 encoded string can contain '<' and '>'
         elem.innerText = decodeURIComponent(escape(atob(encStr_1)));
       } else {
-        elem.innerHTML = obfStr_1;
+        elem.innerText = obfStr_1;
       }
     }
 
