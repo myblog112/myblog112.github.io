@@ -30,13 +30,21 @@
       elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
     }
 
+    function genRandomStr(length) 
+    {
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      for ( var i = 0; i < length; i++ ) { result += characters.charAt(Math.floor(Math.random() * characters.length)); }
+      return result;
+    } 
+
     function makeQuizElem2(encStr_1, obfStr_1, curScript_1)
     {
       debugger;
       // alert(curScript_1);
       // function myFunction() {
       // var x = document.getElementById("myDIV");
-      var elemIdStr = "obf" + makeid(6);
+      var elemIdStr = "obf" + genRandomStr(6);
       var elem = document.createElement('template');
       elem.innerHTML = "<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>";
       var elem2 = elem.content.firstChild;
@@ -293,18 +301,6 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
       var audio = new Audio(aud_fn_1);
       audio.play();
     }
-
-    function makeid(length) 
-    {
-      var result = '';
-      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      var charactersLength = characters.length;
-      for ( var i = 0; i < length; i++ ) 
-      {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      }
-      return result;
-   }
 
 /*
     function revealMiscData_1()
