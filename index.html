@@ -36,7 +36,7 @@
       // alert(curScript_1);
       // function myFunction() {
       // var x = document.getElementById("myDIV");
-      var elem = document.CreateElement('template');
+      var elem = document.createElement('template');
       elem.innerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
       var elem2 = template.content.firstChild;
       curScript_1.parentNode.insertBefore(elem2, curScript_1);
