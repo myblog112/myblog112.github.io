@@ -25,8 +25,7 @@
 <p>My Crypto Testnets Page</p><br>
     
 Related: Javascript encrypt html: https://www.reddit.com/r/HTML/comments/8r7uol/password_protect_indexhtml/,, and it's docs: https://github.com/ricmoo/aes-js <br><br>
-Note: &lt;pre&gt; tag in html will 'swallow' github editor's auto-ident feature and will display it's inner text indented ... if it's indentend in github html 
-  code editor so make sure to unindent the &lt;pre&gt;'s inner text, within github code editor. <br> <br>     
+Note: &lt;pre&gt; tag in html will 'swallow' github editor's auto-ident feature and will display it's inner text indented ... if it's indentend in github html code editor so make sure to unindent the &lt;pre&gt;'s inner text, within github code editor. <br> <br>     
 
 [<a id="obfz003" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem('obfz003','dW1icmVsbGE=');return false;" class=".quiz-href-1">&lt;hidden&gt;</a>]
 
@@ -211,6 +210,22 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
         elem.innerText = decodeURIComponent(escape(atob(encStr_1)));
       } else {
         elem.innerHTML = obf_1;
+      }
+    }
+
+    function toggleQuizElem2(elemIdStr, encStr_1, obfStr_1)
+    {
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      // var obf_1 = "&lt;hidden&gt;" 
+      if (elem.innerHTML === obf_1) {
+        // https://stackoverflow.com/a/62537645
+        // alert( decodeURIComponent( escape( atob( encStr_1 ))) );
+        // also, we don't want 'innerHTML' here because b64 encoded string can contain '<' and '>'
+        elem.innerText = decodeURIComponent(escape(atob(encStr_1)));
+      } else {
+        elem.innerHTML = obfStr_1;
       }
     }
 
