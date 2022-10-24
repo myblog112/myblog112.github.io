@@ -3,7 +3,7 @@
   <head>
     <title>My Crypto Testnets Page</title>
   
-    <style>
+<style>
     body {
       white-space: pre-wrap; /* https://stackoverflow.com/questions/248011/how-do-i-wrap-text-in-a-pre-tag */
       font-family: "Liberation Mono", monospace;
@@ -17,9 +17,20 @@
       /* color: blue; */
     }
     .quiz-href-1 { color: #000099; }
-    </style>
-    
-  </head>
+</style>
+
+<script>
+    function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
+    {
+      alert('In MakeQuizElem');
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +");return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
+    }
+</script>
+
+</head>
 <body>
 <!-- <p>My Crypto Testnets Page</p><br> -->
 My Crypto Testnets Page
@@ -187,16 +198,6 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
 
     }
 */
-
-    function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
-    {
-      alert('In MakeQuizElem');
-      // function myFunction() {
-      // var x = document.getElementById("myDIV");
-      var elem = document.getElementById(elemIdStr);
-      elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +");return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
-    }
-
     function toggleQuizElem(elemIdStr, encStr_1)
     {
       // function myFunction() {
