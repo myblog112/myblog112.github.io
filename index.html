@@ -447,8 +447,15 @@ Additional notes:
 [>] Python - find all instances of a regular expression 'a.*' in a string 'cabd' ==> [<script name="re.findall(r'a.*', 'cabd')">makeQuizElem2('cmUuZmluZGFsbChyJ2EuKicsICdjYWJkJyk=','&lt;hidden&gt;', document.currentScript);</script>] 
 [>] Regexp - find text that is followed by 'abc' ==> [<script name="def(?=abc)">makeQuizElem2('ZGVmKD89YWJjKQ==','&lt;hidden&gt;', document.currentScript);</script>]
 [>] Regexp - identify instances where there are 5 subsequent repetitions of string 'ab' ==> [ab]{5} 
+[>] Regexp - identify instances where there are 2-to-4 subsequent repetitions of string 'ab' ==> [ab]{2,4}
+[>] Regexp - find text that is not preceeded by 'abc' ==> def(?<!abc)
+[>] Regexp - find text that is not followed by 'abc' ==> def(?!abc)
+[>] Grep - what is -E statement? What/when in which cases can it help with?	==> ```echo "ABCD150915.7z" | grep "ABCD[[:digit:]]\{6\}.7z"``` vs. ```echo "ABCD150915.7z" | grep -E "ABCD[[:digit:]]{6}.7z"``` ==> Enabling Extended regular expression mode with -E means that the curly braces are [<script name="understood;;https://stackoverflow.com/a/32607896">makeQuizElem2('dW5kZXJzdG9vZA==','&lt;hidden&gt;', document.currentScript);</script>].
+
 [>] ^^ Todo, insert all 4 from here: https://www.rexegg.com/regex-lookarounds.html
 [>] ^^ Todo, python regexp flags such as 'ignore line'
+[>] ^^ Todo, c++ faq lite,, js/ts,, some bash commands, even batch files,, git much more,, maybe some haskell/python functional.programming.,, 
+[>] ^^ Maybe a good estimate is that when a person (project lead or just a person who has troubles with his home pc) needs an external 'advisor', or 'fixit' guy -- that they will 'pay money' for that knowledge (if a photogenic guy that looks like brad pitt would come to fix to his home)...
 
 [#] Programming textbook knowledge -- tbd1,,
 
