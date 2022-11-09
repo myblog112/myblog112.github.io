@@ -51,6 +51,7 @@
       curScript_1.parentNode.insertBefore(elem2, curScript_1);
     }
 
+    // https://stackoverflow.com/a/824060
     function deleteEmptyLineTry1(curScript_1)
     {
       debugger;
@@ -58,7 +59,13 @@
       // function myFunction() {
       // var x = document.getElementById("myDIV");
       var elem3 = curScript_1.parentNode;
+
       var elem4 = curScript_1.previousSibling;
+
+      var val1 = elem4.nodeValue;
+      var val2 = val1.slice(0,-2);
+      elem4.nodeValue = val2;
+
       var elem5 = curScript_1.nextSibling;
       debugger;
     }
