@@ -76,7 +76,14 @@ function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
       var elem4 = curScript_1.previousSibling;
       elem4.nodeValue = elem4.nodeValue.slice(0,-1); // remove last 1 chars from it
       var elem5 = curScript_1.nextSibling; // next sibling is not yet built
-    }
+  }
+
+  function deleteThisLineAndLineBeforeMe1(curScript_1)
+  {
+    var elem4 = curScript_1.previousSibling;
+
+    elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
+  }  
 </script>
 
 </head>
@@ -395,10 +402,11 @@ statuses in this doc represent real-world situations on respective blockchains?
 [>] Bitcoin 1.0:
 ==> Sorry this has to be here but do I have at least 100$ in bitcoin today? (see in preamble above, why)
 
+<div class="project" name=""></div><script>deleteThisLineAndLineBeforeMe1(document.currentScript);</script>
 [>] Cosmos blockchains governance
 ==> Vote on Scrt network upgrade at least in one wallet till 2022.11.02... ==> Voted on Scrt3,,
 
-<div class="project" name="zksync_testnet_2_0_1" onload="deleteEmptyLineOnLoad1(document.currentScript);">
+<div class="project" name="zksync_testnet_2_0_1">
 [>] ZkSync Testnet 2.0 Ecosystem (Wallet: 0x7a1E...7a1BB (Metamask))
 ==> Ranking: top 10
 ==> Completion status: ~50% (didn't re-verify ~10 transactions on one wallet), didn't do crew3 event. On the flipside: probably done ~10 transactions ...
@@ -424,6 +432,7 @@ statuses in this doc represent real-world situations on respective blockchains?
 5. e`` ===> Crew3 event.
 </div><script>deleteEmptyLineBeforePrevSibling1(document.currentScript);</script>
 
+<script>deleteThisLineAndLineBeforeMe1(document.currentScript);</script>
 [>] ZkSync 1.0 (Non-testnet) ...
 ==> Completion status: ~80% (done around ~ 8 swaps on zigzag exchange, from 11 Oct on 0xfe76...4ff0 ==> need 2-3 more swaps). 
 ==> Block Explorer (v1): https://zkscan.io/explorer/accounts/0xfe76...4ff0
