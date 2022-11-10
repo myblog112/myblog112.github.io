@@ -25,3 +25,8 @@ function deleteThisLineAndLineBeforeMe1(curScript_1)
   elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
 }  
 
+// https://stackoverflow.com/a/824060
+function deleteThisLineTry1(curScript_1)
+{
+  deleteEmptyLineTry1(curScript_1);
+}
