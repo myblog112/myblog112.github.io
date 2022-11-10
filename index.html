@@ -34,14 +34,14 @@ debugger;
 </script>
 
 <script>
-    function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
-    {      
-      //alert('In MakeQuizElem');
-      // function myFunction() {
-      // var x = document.getElementById("myDIV");
-      var elem = document.getElementById(elemIdStr);
-      elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
-    }
+function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
+{      
+  //alert('In MakeQuizElem');
+  // function myFunction() {
+  // var x = document.getElementById("myDIV");
+  var elem = document.getElementById(elemIdStr);
+  elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
+}
 
     function genRandomStr(length) 
     {
@@ -73,13 +73,16 @@ debugger;
       var elem5 = curScript_1.nextSibling; // next sibling is not yet built
     }
 
-  function deleteEmptyLineOnLoad1(curScript_1)
-  {
-    debugger;
-    var elem4 = curScript_1.previousSibling;
-    elem4.nodeValue = elem4.nodeValue.slice(0,-1); // remove last 1 chars from it
-    var elem5 = curScript_1.nextSibling; // next sibling is not yet built
-  }
+  // https://stackoverflow.com/a/824060
+    function deleteEmptyLineBeforePrevSibling1(curScript_1)
+    {
+      debugger;
+      var elem3 = curScript_1.previousSibling;
+      var elem4 = curScript_1.previousSibling.previousSibling;
+      var elem5 = curScript_1.nextSibling; // next sibling is not yet built
+
+      elem4.nodeValue = elem4.nodeValue.slice(0,-1); // remove last 1 chars from it
+    }
 </script>
 
 </head>
@@ -425,7 +428,7 @@ statuses in this doc represent real-world situations on respective blockchains?
 3. Fair Onboarding Alpha
 4. Full Launch Alpha
 5. e`` ===> Crew3 event.
-</div>
+</div><script>deleteEmptyLineBeforePrevSibling1(document.currentScript);</script>
 
 [>] ZkSync 1.0 (Non-testnet) ...
 ==> Completion status: ~80% (done around ~ 8 swaps on zigzag exchange, from 11 Oct on 0xfe76...4ff0 ==> need 2-3 more swaps). 
