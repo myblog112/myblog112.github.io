@@ -1,6 +1,6 @@
 // debugger;
 // console.log('Hello world!');
-// alert('I am being loaded! (my name is utils.js)');
+alert('I am being loaded! (my name is utils.js)');
 
 // https://stackoverflow.com/a/824060
 function deleteEmptyLineOnLoad1(curScript_1)
