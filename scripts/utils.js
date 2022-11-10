@@ -13,6 +13,11 @@ function deleteEmptyLineBeforePrevSibling1(curScript_1)
   elem4.nodeValue = elem4.nodeValue.slice(0,-1); // remove last 1 chars from it
 }
 
+function deleteLineBreakJustBeforePrevSibling1(curScript_1)
+{
+  deleteEmptyLineBeforePrevSibling1(curScript_1);
+}
+
 function deleteThisLineAndLineBeforeMe1(curScript_1)
 {
   var elem4 = curScript_1.previousSibling;
