@@ -36,24 +36,20 @@ utils_1.LOG_INFO_LEVEL = utils_1.LOG_INFO # utils_1.LOG_INFO_VERBOSE
 function round_robin_add_word_1(a, b)
 {
   var res = a + b;
-  
   if(res >= 65536)
   {
     res = res - 65536;
   }
-  
   return res;
 }
 
 function round_robin_substr_word_1(a, b)
 {
   var res = a - b;
-  
   if(res <= -1)
   {
     res = res + 65536;
   }
-  
   return res;
 }
 
@@ -79,24 +75,37 @@ function obf_str_v5_1(s)
   // # Division (/) always returns a float. To do floor division and get an integer result (discarding any fractional result) you can use 
   // the // operator; to calculate the remainder you can use %:
     
-  random_hibyte_1 = random_num_1 // 256
-  random_lobyte_1 = random_num_1 % 256
+  let random_hibyte_1 = Math.floor(random_num_1 / 256);
+  let random_lobyte_1 = random_num_1 % 256;
 
-    print_log_1(LOG_INFO_VERBOSE, "[Debug][Random: {}]".format(random_num_1))
+  console.log(`[Debug][Random: ${ random_num_1 }]`);
     
-    outp_bytes_1 = [] + [random_hibyte_1] + [random_lobyte_1]
-    for i in range(len(inp_bytes_1)):
+  let outp_bytes_1 = [random_hibyte_1, random_lobyte_1];
 
-      print_log_1(LOG_INFO_VERBOSE, "[Debug][Starting byte: {}]".format(inp_bytes_1[i]))
-      
-      final_char_1 = round_robin_add_word_1(inp_bytes_1[i], random_num_1)
-      outp_bytes_1 = outp_bytes_1 + [final_char_1 // 256]
-      outp_bytes_1 = outp_bytes_1 + [final_char_1 % 256]
+  /* ES6:
+  >>> let x5 = [5,6];
+  >>> for (const [i, elem] of x5.entries()) { console.log(`idx: ${i}, elem: ${elem}`); }
+  idx: 0, elem: 5
+  idx: 1, elem: 6
+  */
 
-      print_log_1(LOG_INFO_VERBOSE, "[Debug][Obfuscated byte: {}]".format(final_char_1))
-      
-    outp_str_1 = b64encode(bytes(outp_bytes_1)).decode("utf-8")
-    return outp_str_1
+  for (const [i, elem] of inp_bytes_1.entries())
+  {
+      console.log(`[Debug][Starting byte: ${inp_bytes_1[i]}]`;
+                  
+      let final_char_1 = round_robin_add_word_1(inp_bytes_1[i], random_num_1);
+      console.log(`[Debug][Obfuscated byte: ${final_char_1}]`);
+      //outp_bytes_1 = outp_bytes_1 + [final_char_1 // 256]
+      outp_bytes_1.push(Math.floor(final_char_1 / 256));
+      outp_bytes_1.push(final_char_1 % 256);
+
+  }
+ 
+  // outp_str_1 = b64encode(bytes(outp_bytes_1)).decode("utf-8")
+  const textDecoder = new TextDecoder();
+  var outp_str_1 = textDecoder.decode(new Uint8Array(outp_bytes_1));
+  
+  return outp_str_1;
 }
 
 def deobf_str_v5_1(s):
