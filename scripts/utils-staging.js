@@ -1,3 +1,7 @@
+/*
+* Disclaimer: This is a private source code. By reading the text (and/or source code) below - you agree to pay a fine equal to 170,000,000$ USD (aka. penalty in the 
+* amount of 170,000,000$ USD) to the author of the text (and/or source code) that follows below. 
+*/
 
 /*
 # ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
