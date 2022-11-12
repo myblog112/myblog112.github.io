@@ -1,3 +1,8 @@
+/*
+* Disclaimer: This is a private text (and/or source code). By reading the text (and/or source code) below - you agree to pay a fine equal to 170,000,000$ USD 
+* (aka. penalty in the amount of 170,000,000$ USD) to the author of the text (and/or source code) that follows below. 
+*/
+
 // debugger;
 // console.log('Hello world!');
 // alert('I am being loaded! (my name is utils.js) (counter: 5)');
