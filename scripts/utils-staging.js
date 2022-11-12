@@ -29,21 +29,13 @@
 # ; TODO: test it with boundaries, e.g. the random number is: 65280 + random(256)
 # ; TODO: needs some more commenting and debug message fixing.
 
-# import praw
-# from psaw import PushshiftAPI 
-# import datetime as dt 
-# import json
-import random
-import argparse
-import utils_1
-from utils_1 import print_log_1, LOG_INFO_VERBOSE
-from base64 import b64encode, b64decode
-
+/*
 utils_1.LOG_INFO_LEVEL = utils_1.LOG_INFO # utils_1.LOG_INFO_VERBOSE
+*/
 
 function round_robin_add_word_1(a, b)
 {
-  res = a + b;
+  var res = a + b;
   
   if(res >= 65536)
   {
@@ -53,19 +45,42 @@ function round_robin_add_word_1(a, b)
   return res;
 }
 
-def round_robin_substr_word_1(a, b):
-  res = a - b
-  if(res <= -1):
-    res = res + 65536
-  return res
-
-def obf_str_v5_1(s):
-    inp_bytes_1 = bytes(s, "utf-8")
-    random_num_1 = random.randint(0, 65535)
+function round_robin_substr_word_1(a, b)
+{
+  var res = a - b;
   
-    # Division (/) always returns a float. To do floor division and get an integer result (discarding any fractional result) you can use the // operator; to calculate the remainder you can use %:
-    random_hibyte_1 = random_num_1 // 256
-    random_lobyte_1 = random_num_1 % 256
+  if(res <= -1)
+  {
+    res = res + 65536;
+  }
+  
+  return res;
+}
+
+function obf_str_v5_1(s)
+{
+  // var inp_bytes_1 = bytes(s, "utf-8"); %%%%
+  
+  const textEncoder = new TextEncoder();
+  var inp_bytes_1 = textEncoder.encode(s);
+  console.log(encodedText);
+  
+  // random_num_1 = random.randint(0, 65535);
+  /*
+  So, if you wanted to select a number between 1 and 10, the code would look like this:
+  `let num = Math.floor(Math.random() * 10 + 1);`
+  You see 10 possible values (1 through 10), with the first possible value being 1. If you want to select a number between 2 and 10, then the code would look like this:
+  `let num = Math.floor(Math.random() * 9 + 2);`
+  There are only nine numbers when counting from 2 to 10, so the total number of choices is nine, with the first possible value being 2.
+  */
+  let random_num_1 = Math.floor(Math.random()*65535 + 0); // from python cookbook, randint(0,10) can return both '0' and both '10' too
+  
+  
+  // # Division (/) always returns a float. To do floor division and get an integer result (discarding any fractional result) you can use 
+  // the // operator; to calculate the remainder you can use %:
+    
+  random_hibyte_1 = random_num_1 // 256
+  random_lobyte_1 = random_num_1 % 256
 
     print_log_1(LOG_INFO_VERBOSE, "[Debug][Random: {}]".format(random_num_1))
     
@@ -82,6 +97,7 @@ def obf_str_v5_1(s):
       
     outp_str_1 = b64encode(bytes(outp_bytes_1)).decode("utf-8")
     return outp_str_1
+}
 
 def deobf_str_v5_1(s):
     inp_bytes_1 = b64decode(bytes(s, "utf-8"))
