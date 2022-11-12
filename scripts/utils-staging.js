@@ -32,6 +32,21 @@
 /*
 utils_1.LOG_INFO_LEVEL = utils_1.LOG_INFO # utils_1.LOG_INFO_VERBOSE
 */
+// helper funcs - start
+global.Buffer = global.Buffer || require('buffer').Buffer;
+
+if (typeof btoa === 'undefined') {
+  global.btoa = function (str) {
+    return new Buffer(str, 'binary').toString('base64');
+  };
+}
+
+if (typeof atob === 'undefined') {
+  global.atob = function (b64Encoded) {
+    return new Buffer(b64Encoded, 'base64').toString('binary');
+  };
+}
+// helper funcs - end
 
 function round_robin_add_word_1(a, b)
 {
@@ -53,13 +68,26 @@ function round_robin_substr_word_1(a, b)
   return res;
 }
 
+function unpack_array_helper_dirty_fix_1(a1)
+{
+  let ret1 = [];
+
+  for (const [i, elem] of a1.entries())
+  {
+    ret1.push(elem);
+  }
+  
+  return Uint8Array.from(ret1);
+}
+
 function obf_str_v5_1(s)
 {
   // var inp_bytes_1 = bytes(s, "utf-8"); %%%%
   
+  // Convert js string to bytes array (ES6? (?))
   const textEncoder = new TextEncoder();
   var inp_bytes_1 = textEncoder.encode(s);
-  console.log(`[Debug][Random: ${ inp_bytes_1 }]`);
+  console.log(`[Debug][V5_Obf()][Starting bytes: ${ inp_bytes_1} ]`);
   
   // random_num_1 = random.randint(0, 65535);
   /*
@@ -100,85 +128,106 @@ function obf_str_v5_1(s)
       outp_bytes_1.push(final_char_1 % 256);
   }
  
+  console.log(`[Debug][V5_Obf()][Final bytes: ${ outp_bytes_1 }]`);
   // outp_str_1 = b64encode(bytes(outp_bytes_1)).decode("utf-8")
-  const textDecoder = new TextDecoder();
-  var outp_str_1 = textDecoder.decode(new Uint8Array(outp_bytes_1));
-  
+  // const textDecoder = new TextDecoder();
+  // var outp_str_1 = textDecoder.decode(new Uint8Array(outp_bytes_1));
+  var outp_str_1 = btoa(outp_bytes_1); // it jus accepts Uint8Array
+  console.log(`[Debug][V5_Obf()][Final bytes (after btoa): ${ outp_str_1 }]`);
+
   return outp_str_1;
 }
-
 
 // test
 console.log(obf_str_v5_1('abc'));
 
+function deobf_str_v5_1(s)
+{
+  // inp_bytes_1 = b64decode(bytes(s, "utf-8"))
+  // let inp_str_1 = atob(s);
+  let inp_bytes_1 = Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  console.log(`[Debug][V5_DeObf()][Inp str (after atob): ${ inp_bytes_1 }]`);
+  console.log(`[Debug][V5_DeObf()][Inp str (after atob) (type of it): ${ typeof(inp_bytes_1) }]`);
 
 
+  // let inp_str_2 = new TextDecoder().decode(atob(s));
+  // console.log(`[Debug][V5_DeObf()][Inp str (after atob): ${ inp_str_2 }]`);
 
-def deobf_str_v5_1(s):
-    inp_bytes_1 = b64decode(bytes(s, "utf-8"))
-    random_hibyte_1 = inp_bytes_1[0]
-    random_lobyte_1 = inp_bytes_1[1]
-  
-    random_num_1 = (random_hibyte_1 * 256) + random_lobyte_1 
-  
-    outp_bytes_1 = []
-    hibyte_mode_1 = True
-    for e in (inp_bytes_1[2:]):
-      if(hibyte_mode_1):
-        hibyte_mode_1 = False
-        hibyte_1 = e
-      else:
-        hibyte_mode_1 = True
-        lobyte_1 = e
-
-        # Do the substract ...
-        final_charcode_1 = round_robin_substr_word_1((hibyte_1 * 256) + lobyte_1, random_num_1)
-
-        ## Still break into bytes again after substracting - nope, don't agree - just convert the result via 'chr()' function 
-        # final_hibyte_1 = final_char_1 // 256
-        # final_lobyte_1 = final_char_1 % 256
-
-        print_log_1(LOG_INFO_VERBOSE, "[Debug][De-obfuscated byte: {}]".format(final_charcode_1))
-
-        # chr(i) - Return the string representing a character whose Unicode code point is the integer i. For example, chr(97)
-        # returns the string 'a', while chr(8364) returns the string '€'. This is the inverse of ord().
-        # ord(c) - Given a string representing one Unicode character, return an integer representing the Unicode code point of
-        # that character. For example, ord('a') returns the integer 97 and ord('€') (Euro sign) returns 8364.
-        # This is the inverse of chr().
-
-        outp_bytes_1 = outp_bytes_1 + [ final_charcode_1 ]
-
-        # Next ...
+  // Convert js string to bytes array (ES6? (?))
+  // const textEncoder = new TextEncoder();
+  // var inp_bytes_1 = textEncoder.encode(inp_str_1);
     
-    outp_str_1 = str(bytes(outp_bytes_1), "utf-8")
-    return outp_str_1
-    # print("Debug: (1) {},, ".format(outp_chars_1))
-    # return outp_chars_1
-  
-if (__name__ == "__main__"):
-  outp_str_1 = ""
+  // console.log(`[Debug][V5_DeObf()][Inp bytes (after atob): ${ inp_bytes_1 }]`);
 
-  parser = argparse.ArgumentParser()
-  parser.add_argument('string', help="String to obfuscate/deobfuscate (v5 style)")
-  parser.add_argument('-d', action='store_true', help="Deobfuscate (reverse previous obfuscation)")
-  parser.add_argument('-r', action='store_true', help="Re-obfuscate")
-  parser.add_argument('-c', action='store_true', help="Copy to clipboard.")
-  args = parser.parse_args()
+  let random_hibyte_1 = inp_bytes_1[0];
+  let random_lobyte_1 = inp_bytes_1[1];
 
-  if(args.d == True):
-    outp_str_1 = deobf_str_v5_1(args.string)
-  elif(args.r == True):
-    outp_str_1 = deobf_str_v5_1(args.string)
-    outp_str_1 = obf_str_v5_1(args.string)
-  else:
-    outp_str_1 = obf_str_v5_1(args.string)
-    # outp_str_1 = deobf_str_v5_1(args.string)
+  let random_num_1 = (random_hibyte_1 * 256) + random_lobyte_1; 
 
-  if(args.c == True):
-    utils_1.ugly_copy_to_clipboard_1(outp_str_1)
-  else:
-    print(outp_str_1)
+  let outp_bytes_1 = [];
+  let hibyte_mode_1 = true;
+  let hibyte_1 = null;
 
+  // let inp_bytes_2 = Array.from(inp_bytes_1.entries()).splice(0,2);
+
+  for (const [i, elem] of inp_bytes_1.entries())
+  {
+    if(i < 2)
+    {
+      continue; // dirty hack, TODO fix later
+    }
+    else if(hibyte_mode_1)
+    {
+      hibyte_mode_1 = false;
+      hibyte_1 = elem;
+
+      console.log(`[Debug][DeObfV5()][HiByte: ${ hibyte_1 }]`);
+    }
+    else
+    {
+      hibyte_mode_1 = true;
+      lobyte_1 = elem;
+
+      console.log(`[Debug][DeObfV5()][LoByte: ${ lobyte_1 }]`);
+
+      // # Do the substract ...
+      let final_charcode_1 = round_robin_substr_word_1((hibyte_1 * 256) + lobyte_1, random_num_1)
+
+      // Still break into bytes again after substracting - nope, don't agree - just convert the result via 'chr()' function 
+      // # final_hibyte_1 = final_char_1 // 256
+      // # final_lobyte_1 = final_char_1 % 256
+      console.log(`[Debug][De-obfuscated byte: ${final_charcode_1}]`);
+
+      // # chr(i) - Return the string representing a character whose Unicode code point is the integer i. For example, chr(97)
+      // # returns the string 'a', while chr(8364) returns the string '€'. This is the inverse of ord().
+      // # ord(c) - Given a string representing one Unicode character, return an integer representing the Unicode code point of
+      // # that character. For example, ord('a') returns the integer 97 and ord('€') (Euro sign) returns 8364.
+      // # This is the inverse of chr().
+      outp_bytes_1.push(final_charcode_1);
+      //  # Next ...
+    }
+  }
+    
+  console.log(`[Debug][Outp bytes: ${ outp_bytes_1 }]`);
+
+  let outp_bytes_2 = unpack_array_helper_dirty_fix_1(outp_bytes_1);
+
+  console.log(`[Debug][Outp bytes 2: ${ outp_bytes_2 }]`);
+
+  // Convert js string to bytes array (ES6? (?))
+  // let temp_var_1 = new TextEncoder().encode("¢");
+  // let outp_str_1 = new TextDecoder().decode(temp_var_1);
+  let outp_str_1 = new TextDecoder().decode(outp_bytes_2);
+
+  // console.log(`[Debug][Outp string: ${ temp_var_1 }]`);
+  console.log(`[Debug][Outp string: ${ outp_str_1 }]`);
+
+  //let outp_str_1 = str(bytes(outp_bytes_1), "utf-8")
+  return outp_str_1;
+}
+
+// test
+console.log(deobf_str_v5_1('7qvvDO8N7w4='));
 
 var python_orig_code_1 = `
 #!/usr/bin/env python3
