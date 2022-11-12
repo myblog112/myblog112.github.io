@@ -145,10 +145,14 @@ function deobf_str_v5_1(s)
 {
   // inp_bytes_1 = b64decode(bytes(s, "utf-8"))
   // let inp_str_1 = atob(s);
+  
+  // The second argument to Uint8Array.from() is a 'transpose' lambda function (see: TypedArray.from())
+  // From book (Professional Javascript by Matt Frisbie,, p.145): For most language characters 0x0000 to 0xffff (in utf-16) (but not 
+  // smiley's chars),,, --> charCodeAt() is similar to charAt())
   let inp_bytes_1 = Uint8Array.from(atob(s), c => c.charCodeAt(0));
+
   console.log(`[Debug][V5_DeObf()][Inp str (after atob): ${ inp_bytes_1 }]`);
   console.log(`[Debug][V5_DeObf()][Inp str (after atob) (type of it): ${ typeof(inp_bytes_1) }]`);
-
 
   // let inp_str_2 = new TextDecoder().decode(atob(s));
   // console.log(`[Debug][V5_DeObf()][Inp str (after atob): ${ inp_str_2 }]`);
