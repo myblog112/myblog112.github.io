@@ -59,7 +59,7 @@ function obf_str_v5_1(s)
   
   const textEncoder = new TextEncoder();
   var inp_bytes_1 = textEncoder.encode(s);
-  console.log(encodedText);
+  console.log(`[Debug][Random: ${ inp_bytes_1 }]`);
   
   // random_num_1 = random.randint(0, 65535);
   /*
@@ -91,14 +91,13 @@ function obf_str_v5_1(s)
 
   for (const [i, elem] of inp_bytes_1.entries())
   {
-      console.log(`[Debug][Starting byte: ${inp_bytes_1[i]}]`;
+      console.log(`[Debug][Starting byte: ${inp_bytes_1[i]}]`);
                   
       let final_char_1 = round_robin_add_word_1(inp_bytes_1[i], random_num_1);
       console.log(`[Debug][Obfuscated byte: ${final_char_1}]`);
       //outp_bytes_1 = outp_bytes_1 + [final_char_1 // 256]
       outp_bytes_1.push(Math.floor(final_char_1 / 256));
       outp_bytes_1.push(final_char_1 % 256);
-
   }
  
   // outp_str_1 = b64encode(bytes(outp_bytes_1)).decode("utf-8")
@@ -107,6 +106,13 @@ function obf_str_v5_1(s)
   
   return outp_str_1;
 }
+
+
+// test
+console.log(obf_str_v5_1('abc'));
+
+
+
 
 def deobf_str_v5_1(s):
     inp_bytes_1 = b64decode(bytes(s, "utf-8"))
