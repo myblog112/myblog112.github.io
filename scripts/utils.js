@@ -36,18 +36,6 @@ function deleteThisLineTry1(curScript_1)
   deleteEmptyLineTry1(curScript_1);
 }
 
-    function toggleQuizElemV5Try1(elemIdStr, encStr_1, obfStr_1)
-    {
-      debugger;
-      var elem = document.getElementById(elemIdStr);
-      var obf_1 = "&lt;hidden&gt;" // still need this for the 'if' that is below ... 
-      if (elem.innerText === obfStr_1) {
-        elem.innerText = deobf_str_v5_1(encStr_1);
-      } else {
-        elem.innerText = obfStr_1;
-      }
-    }
-
 /*
 # ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 # ;; myenc5()/mydec5() - obfuscate a text with adding random salt (doesn't encrypt, just obfuscates, a little bit more randomish than simple
@@ -424,7 +412,7 @@ if (__name__ == "__main__"):
 # ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 */
 
-alert('I am being loaded! (my name is utils.js) (counter: 6)');
+// alert('I am being loaded! (my name is utils.js - end of file 1) (counter: 6)');
 
 
 
