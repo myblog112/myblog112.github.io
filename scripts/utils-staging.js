@@ -32,7 +32,9 @@
 /*
 utils_1.LOG_INFO_LEVEL = utils_1.LOG_INFO # utils_1.LOG_INFO_VERBOSE
 */
+
 // helper funcs - start
+/* Uncomment for node.js below: 
 global.Buffer = global.Buffer || require('buffer').Buffer;
 
 if (typeof btoa === 'undefined') {
@@ -46,6 +48,7 @@ if (typeof atob === 'undefined') {
     return new Buffer(b64Encoded, 'base64').toString('binary');
   };
 }
+*/
 // helper funcs - end
 
 function round_robin_add_word_1(a, b)
@@ -369,6 +372,10 @@ if (__name__ == "__main__"):
     print(outp_str_1)
 `;
 
-
+/*
+# ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+# V5Obf/DeObf() - end.
+# ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+*/
 alert("If you see this message - this means that the script 'utils-staging.js' has been fully parsed.");
 
