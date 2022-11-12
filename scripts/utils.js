@@ -69,9 +69,11 @@ function deleteThisLineTry1(curScript_1)
 # ;; -- This is so far the version that is used beside 'myobf2/mydeobf2' whom are simply base64-encode/base64-decode.
 */
 
+/*
 # ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 # ; TODO: test it with boundaries, e.g. the random number is: 65280 + random(256)
 # ; TODO: needs some more commenting and debug message fixing.
+*/
 
 /*
 utils_1.LOG_INFO_LEVEL = utils_1.LOG_INFO # utils_1.LOG_INFO_VERBOSE
