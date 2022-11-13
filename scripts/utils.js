@@ -36,6 +36,64 @@ function deleteThisLineTry1(curScript_1)
   deleteEmptyLineTry1(curScript_1);
 }
 
+function deleteEmptyLineTry1(curScript_1)
+{
+  var elem4 = curScript_1.previousSibling;
+  elem4.nodeValue = elem4.nodeValue.slice(0,-1); // remove last 1 chars from it
+  var elem5 = curScript_1.nextSibling; // next sibling is not yet built
+}
+
+function deleteThisLineAndLineBeforeMe1(curScript_1)
+{
+  var elem4 = curScript_1.previousSibling;
+
+  elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
+}  
+
+/*
+// Make Quiz Elem - oriented functions
+*/
+
+function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
+{      
+  //alert('In MakeQuizElem');
+  // function myFunction() {
+  // var x = document.getElementById("myDIV");
+  var elem = document.getElementById(elemIdStr);
+  elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
+}
+
+function genRandomStr(length) 
+{
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for ( var i = 0; i < length; i++ ) { result += characters.charAt(Math.floor(Math.random() * characters.length)); }
+  return result;
+} 
+
+function makeQuizElem2(encStr_1, obfStr_1, curScript_1)
+    {
+      // debugger;
+      // alert(curScript_1);
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elemIdStr = "obf" + genRandomStr(6);
+      var elem = document.createElement('template');
+      elem.innerHTML = "<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>";
+      var elem2 = elem.content.firstChild;
+      curScript_1.parentNode.insertBefore(elem2, curScript_1);
+    }
+
+function makeQuizElemV5Try1(encStr_1, obfStr_1, curScript_1)
+{
+  var elemIdStr = "obf" + genRandomStr(6);
+  var elem = document.createElement('template');
+  elem.innerHTML = "<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElemV5Try1('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>";
+  var elem2 = elem.content.firstChild;
+  curScript_1.parentNode.insertBefore(elem2, curScript_1);
+}
+
+
 /*
 # ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 # ;; myenc5()/mydec5() - obfuscate a text with adding random salt (doesn't encrypt, just obfuscates, a little bit more randomish than simple
