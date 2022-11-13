@@ -13,5 +13,5 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// alert("If you see this message - this means that the script 'utils-staging.js (end of file 1)' has been fully parsed.");
+alert("If you see this message - this means that the script 'utils-staging.js (end of file 1)' has been fully parsed.");
 
