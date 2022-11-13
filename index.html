@@ -97,6 +97,17 @@ function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
 
     elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
   }  
+  
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 't') {
+    // Prevent the Save dialog to open
+    e.preventDefault();
+    // Place your code here
+    alert("Ctrl-T was pressed.");
+    console.log('CTRL + S');
+  }
+});
+
 </script>
 
 </head>
