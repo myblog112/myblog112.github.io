@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Crypto Testnets Page</title>
+  
+<style>
+    body {
+      white-space: pre-wrap; /* https://stackoverflow.com/questions/248011/how-do-i-wrap-text-in-a-pre-tag */
+      font-family: "Liberation Mono", monospace;
+      margin-top: 0px;
+    }
+    pre {
+      display: block;
+      font-family: "Liberation Mono", monospace;
+      white-space: nowrap; /* https://stackoverflow.com/questions/42960089/how-do-you-remove-a-line-from-pre-without-leaving-an-empty-line */
+      margin: 0px 0px 0px 0px;
+      /* comment within css */
+      /* color: blue; */
+    }
+    .quiz-href-1 { color: #000099; }
+</style>
+    
+<script src="scripts/utils.js"></script>
+
+<script>
+function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
+{      
+  //alert('In MakeQuizElem');
+  // function myFunction() {
+  // var x = document.getElementById("myDIV");
+  var elem = document.getElementById(elemIdStr);
+  elem.outerHTML = "[<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>]";
+}
+
+function genRandomStr(length) 
+{
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for ( var i = 0; i < length; i++ ) { result += characters.charAt(Math.floor(Math.random() * characters.length)); }
+  return result;
+} 
+
+    function makeQuizElem2(encStr_1, obfStr_1, curScript_1)
+    {
+      // debugger;
+      // alert(curScript_1);
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elemIdStr = "obf" + genRandomStr(6);
+      var elem = document.createElement('template');
+      elem.innerHTML = "<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElem2('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>";
+      var elem2 = elem.content.firstChild;
+      curScript_1.parentNode.insertBefore(elem2, curScript_1);
+    }
+
+function makeQuizElemV5Try1(encStr_1, obfStr_1, curScript_1)
+{
+  var elemIdStr = "obf" + genRandomStr(6);
+  var elem = document.createElement('template');
+  elem.innerHTML = "<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleQuizElemV5Try1('" + elemIdStr + "','" + encStr_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>";
+  var elem2 = elem.content.firstChild;
+  curScript_1.parentNode.insertBefore(elem2, curScript_1);
+}
+
+function deleteEmptyLineTry1(curScript_1)
+{
+  var elem4 = curScript_1.previousSibling;
+  elem4.nodeValue = elem4.nodeValue.slice(0,-1); // remove last 1 chars from it
+  var elem5 = curScript_1.nextSibling; // next sibling is not yet built
+}
+
+function deleteThisLineAndLineBeforeMe1(curScript_1)
+{
+  var elem4 = curScript_1.previousSibling;
+
+  elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
+}  
+</script>
+
+</head>
+<body>
+Disclaimer: This is a private website. By reading the text below - you agree to pay a fine equal to 170,000,000$ USD (aka. penalty in the amount of 170,000,000$ USD) to the author of the text that follows below.
+<div hidden>^^ One idea behind the above is fear that some images I might put here - might be copyrighted ...</div>
+---- 
+<pre>
+[>] Some templates:
+<div class='' name="">
+</div><script>deleteLineBreakJustBeforePrevSibling1(document.currentScript);</script>
+----
+<script name="tag: 2022.11.13,,">deleteEmptyLineTry1(document.currentScript);</script>
+[2022.11.13.1]
+-- В жопе невыносимой все ...
+-- Вещи не выкидываются.
+-- Покуриваю уже задыхаюсь от проклятого курения Я.
+-- Не перевозятся вещи вообще ноххой.
+-- Как Я сказал -- наххуй скис там ебанный в рот там эта капуста с морковкой и с брокколи - и даже выкинуть все это Я наххуй не могу.
+-- Зуб отваливается ... страх невыносимейший.
+-- Насчет тай-чи -- не хуййя.
+-- Сделал немножко типа -- ну -- этого -- шибаши ... 
+--- Вчера сделал скрипт на джаваскрипте дтао -- молодец! Great JOb! Здорово!
+... 
+-- Насчет тай-чи ... типа вроде как Я сказал позавчера -- типа хочется что типа если Я вылезаю наружу утром то потом не могу себя остановить вечером и получается сигаретный овердоз... а с другой стороны все таски заткнуты наххуй ... и врач тут никакой мне не поможет ... такое у меня на 99% ощущение.
+
+[end]
+</pre>
+[/end]
+<!-- -- TESTING AREA OR BETAS START -- -->
+<!-- [<a id="obfz003" title="Show/Hide" href="NoJS.html" onclick="toggleQuizElem('obfz003','dW1icmVsbGE=');return false;" class=".quiz-href-1">&lt;hidden&gt;</a>] -->
+<!-- <script>alert('Hello!');</script> --> <!-- Inline scripts do work! -->
+<!-- -- TESTING AREA OR BETAS END -- -->
+</div><div style='display:none;'>
+<!-- -- JS HELPER FUNCTIONS START -- -->
+  <script>
+/*
+    function playIfAudio()
+    {
+//      alert('123');
+      var audio_elem_1 = document.getElementById('audio_1');
+
+      var audio_src_1 = audio_elem_1.getAttribute('src');
+      if(audio_src_1) // https://stackoverflow.com/a/5515349
+      {
+//         alert('Debug: There is audio.');
+           audio_elem_1.play();
+      }
+      else
+      {
+//         alert('Debug: There is no audio.');
+      }
+
+    }
+*/
+    function toggleQuizElem(elemIdStr, encStr_1)
+    {
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      var obf_1 = "&lt;hidden&gt;" 
+      if (elem.innerHTML === obf_1) {
+        // https://stackoverflow.com/a/62537645
+        // alert( decodeURIComponent( escape( atob( encStr_1 ))) );
+        // also, we don't want 'innerHTML' here because b64 encoded string can contain '<' and '>'
+        elem.innerText = decodeURIComponent(escape(atob(encStr_1)));
+      } else {
+        elem.innerHTML = obf_1;
+      }
+    }
+
+    function toggleQuizElem2(elemIdStr, encStr_1, obfStr_1)
+    {
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      var obf_1 = "&lt;hidden&gt;" // still need this for the 'if' that is below ... 
+      if (elem.innerText === obfStr_1) {
+        // https://stackoverflow.com/a/62537645
+        // alert( decodeURIComponent( escape( atob( encStr_1 ))) );
+        // also, we don't want 'innerHTML' here because b64 encoded string can contain '<' and '>'
+        elem.innerText = decodeURIComponent(escape(atob(encStr_1)));
+      } else {
+        elem.innerText = obfStr_1;
+      }
+    }
+
+    function toggleQuizElemV5Try1(elemIdStr, encStr_1, obfStr_1)
+    {
+      debugger;
+      var elem = document.getElementById(elemIdStr);
+      var obf_1 = "&lt;hidden&gt;" // still need this for the 'if' that is below ... 
+      if (elem.innerText === obfStr_1) {
+        elem.innerText = deobf_str_v5_1(encStr_1);
+      } else {
+        elem.innerText = obfStr_1;
+      }
+    }
+
+    function toggleShowImage(elemIdStr, img_fn_1)
+    {
+      // function myFunction() {
+      // var x = document.getElementById("myDIV");
+      var elem = document.getElementById(elemIdStr);
+      var obf_1 = "&lt;img&gt;" 
+      if (elem.innerHTML === obf_1) {
+        elem.innerHTML = '<br><img src="' + img_fn_1 + '" /><br>'
+      } else {
+        elem.innerHTML = obf_1;
+      }
+    }
+
+    function playAudio_1(aud_fn_1)
+    {
+      var audio = new Audio(aud_fn_1);
+      audio.play();
+    }
+
+/*
+    function revealMiscData_1()
+    {
+       var elem_1 = document.getElementById("miscdata");
+
+       if(elem_1.style.display == "none") 
+       {
+         elem_1.style.display = "inline";
+       } 
+       else 
+       {
+         elem_1.style.display = "none";
+       }
+    }
+*/
+  </script>
+<!-- -- JS HELPER FUNCTIONS END -- -->
+</div></body>
+</html>
