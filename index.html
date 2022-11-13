@@ -97,13 +97,16 @@ function makeQuizElem(elemIdStr, encStr_1, obfStr_1)
 
     elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
   }  
-  
+/*
+// Ctrl-N|W|T and some other shortcuts ... are not possible to intercept ==> see this bug report: (they don't want malicious scripts overriding Ctrl-N (which even I sometimes use)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1291706
+*/
 document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.key === 't') {
+  if (e.ctrlKey && e.key === 'f') {
     // Prevent the Save dialog to open
     e.preventDefault();
     // Place your code here
-    alert("Ctrl-T was pressed.");
+    alert("Ctrl-F was pressed.");
     console.log('CTRL + S');
   }
 });
