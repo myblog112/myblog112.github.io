@@ -108,6 +108,17 @@ document.addEventListener('keydown', e => {
   }
 });
 
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 's') {
+    // Prevent the Save dialog to open
+    e.preventDefault();
+    // Place your code here
+    alert("Ctrl-S was pressed.");
+    console.log('CTRL + S');
+  }
+});
+
+alert('Do you see this line?');
 </script>
 
 </head>
