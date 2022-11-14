@@ -43,10 +43,15 @@ function deleteEmptyLineTry1(curScript_1)
   var elem5 = curScript_1.nextSibling; // next sibling is not yet built
 }
 
+function deleteThisAndPreviousLineTry1(curScript_1)
+{
+  var elem4 = curScript_1.previousSibling;
+  elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
+}  
+
 function deleteThisLineAndLineBeforeMe1(curScript_1)
 {
   var elem4 = curScript_1.previousSibling;
-
   elem4.nodeValue = elem4.nodeValue.slice(0,-2); // remove last 2 chars from it
 }  
 
