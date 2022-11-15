@@ -6,16 +6,7 @@
 // Ctrl-N|W|T and some other shortcuts ... are not possible to intercept ==> see this bug report: (they don't want malicious scripts overriding Ctrl-N (which even I sometimes use)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1291706
 */
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.key === 'f') {
-    // Prevent the Save dialog to open
-    e.preventDefault();
-    // Place your code here
-    alert("Ctrl-F was pressed.");
-    console.log('CTRL + S');
-  }
-});
-
+// Keys that work: Ctrl-F (do not override it I need it.)
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.key === 's') {
     // Prevent the Save dialog to open
