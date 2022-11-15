@@ -7,6 +7,9 @@
 // console.log('Hello world!');
 // alert('I am being loaded! (my name is utils.js) (counter: 5)');
 
+/*
+// Line deletion inside <pre> tags - scripts
+*/
 // https://stackoverflow.com/a/824060
 function deleteEmptyLineBeforePrevSibling1(curScript_1)
 {
