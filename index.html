@@ -17,7 +17,8 @@
       /* comment within css */
       /* color: blue; */
     }
-    .quiz-href-1 { color: #000099; }
+  .quiz-href-1 { color: #000099; }
+  #InnerConsoleCssClassTry1 { position: absolute; top:0px; height: 300px; width: 100%; }
 </style>
     
 <script>
@@ -1861,8 +1862,17 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
 <!-- <script>alert('Hello!');</script> --> <!-- Inline scripts do work! -->
 <!-- -- TESTING AREA OR BETAS END -- -->
 </div><div style='display:none;'>
+
+<div id='InnerConsoleTry1' class='InnerConsoleCssClassTry1' style='display:none;'>
+<pre>
+Disclaimer: This is a private website. By reading the text below - you agree to pay a fine equal to 170,000,000$ USD (aka. penalty in the amount of 170,000,000$ USD) to the author of the text that follows below.
+</pre>
+
+</div>
 <!-- -- JS HELPER FUNCTIONS START -- -->
-  <script>
+<!-- -- JS HELPER FUNCTIONS START -- -->
+<!-- -- JS HELPER FUNCTIONS START -- -->
+<script>
 /*
     function playIfAudio()
     {
@@ -1978,6 +1988,21 @@ document.addEventListener('keydown', e => {
       + (300 * 0.27) // rebus
       ;
     alert("Sum: " + sum1);
+  }
+});
+
+/*
+// Console (or interactivity)
+*/
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 'c') {
+    // Prevent the Save dialog to open
+    e.preventDefault();
+    // Place your code here
+    alert("Ctrl-C intercepted.");
+    
+    let elem1 = document.getElementById("InnerConsoleTry1");    
+    elem_1.style.display = "block";
   }
 });
 
