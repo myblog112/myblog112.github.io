@@ -1865,7 +1865,7 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
 <!-- -- TESTING AREA OR BETAS END -- -->
 </div><div style='display:none;'>
 
-<div id='InnerConsoleTry1' class='InnerConsoleCssClassTry1' style='display:none;'>
+<div id='InnerConsoleTry1' class='InnerConsoleCssClassTry1'>
 <pre>
 Disclaimer: This is a private website. By reading the text below - you agree to pay a fine equal to 170,000,000$ USD (aka. penalty in the amount of 170,000,000$ USD) to the author of the text that follows below.
 </pre>
@@ -2001,11 +2001,12 @@ document.addEventListener('keydown', e => {
     // Prevent the Save dialog to open
     e.preventDefault();
     // Place your code here
+    alert("Ctrl-C intercepted. #1");
     
     let elem1 = document.getElementById("InnerConsoleTry1");    
-    elem1.style.display = "block";
+    elem1.style.display = "inline";
     
-    alert("Ctrl-C intercepted.");
+    alert("Ctrl-C intercepted. #2");
   }
 });
 
