@@ -1960,7 +1960,28 @@ I could write a list that you couldnt finish in a week 🙂 so much to do
        }
     }
 */
-  </script>
+
+/*
+// Calculator
+*/
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 'b') {
+    // Prevent the Save dialog to open
+    e.preventDefault();
+    // Place your code here
+    let sum1 = 
+        (230 * 1.16) // osmo
+      + (25 * 10.16) // atom
+      + (53 * 2.28)  // juno
+      + (250 * 0.88) // scrt
+      + (116)        // btc
+      + (300 * 0.27) // rebus
+      ;
+    alert("Sum: " + sum1);
+  }
+});
+
+</script>
 <!-- -- JS HELPER FUNCTIONS END -- -->
 </div></body>
 </html>
