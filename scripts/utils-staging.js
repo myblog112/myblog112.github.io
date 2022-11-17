@@ -16,6 +16,47 @@ document.addEventListener('keydown', e => {
     console.log('CTRL + S');
   }
 });
+
+/* 
+* W3Schools Console example (https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick)
+*/
+/*
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>HTML DOM Events</h1>
+<h2>The onclick Event</h2>
+
+<p>The onclick event triggers a function when an element is clicked on.</p>
+<p>Click to trigger a function that will output "Hello World": 2</p>
+
+<button onclick="myFunction()">Click me</button>
+
+<p id="textArea1"></p>
+
+<script>
+function consoleLog(str)
+{
+  document.getElementById("textArea1").innerText += str + '\n';
+}
+function myFunction() {
+const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+console.log(fetchPromise);
+
+fetchPromise.then((response) => {
+  consoleLog(`Received response: ${response.status}`);
+});
+
+consoleLog("Started request…");
+}
+</script>
+
+</body>
+</html>
+*/
+
 // alert('Do you see this line?');
 
 // alert("If you see this message - this means that the script 'utils-staging.js (end of file 1)' has been fully parsed.");
