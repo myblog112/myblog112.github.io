@@ -2726,12 +2726,18 @@ document.addEventListener('keydown', e => {
     e.preventDefault();
     // Place your code here
     let sum1 = 
-        (230 * 1.16) // osmo
-      + (25 * 10.16) // atom
-      + (53 * 2.28)  // juno
-      + (250 * 0.88) // scrt
+        1674 // sol
+      + 389 // usdc on polygon
+      + 144 // dai on gnosis 
+      + 13  // dai on polygon
+      + ((577 + 360) * 0.80) // evmos 
+      + (230 * 1.02) // osmo
+      + (25 * 10.12) // atom
+      + (53 * 1.79)  // juno
+      + (250 * 0.80) // scrt
       + (116)        // btc
-      + (300 * 0.27) // rebus
+      + (300 * 0.13) // rebus
+      // + (8144 * 0.02) // ust
       ;
     alert("Sum: " + sum1);
   }
