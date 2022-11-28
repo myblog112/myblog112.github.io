@@ -96,6 +96,38 @@ function makeQuizElemV5Try1(encStr_1, obfStr_1, curScript_1)
   curScript_1.parentNode.insertBefore(elem2, curScript_1);
 }
 
+// Example: 
+// [<script name="problem">makeImgQuizElem1('img/_shibashi_set_with_karen_pics_try_1/001_001_1.png','&lt;hidden&gt;', document.currentScript);</script>]
+function makeImgQuizElem1(img_fn_1, obfStr_1, curScript_1)
+{
+  // debugger;
+  // alert(curScript_1);
+  // function myFunction() {
+  // var x = document.getElementById("myDIV");
+  var elemIdStr = "obf" + genRandomStr(6);
+  var elem = document.createElement('template');
+  elem.innerHTML = "<a id=\""+elemIdStr+"\" title=\"Show/Hide\" href=\"NoJS.html\" onclick=\"toggleShowImage2('" + elemIdStr + "','" + img_fn_1 + "','" + obfStr_1 +"');return false;\" class=\".quiz-href-1\">" + obfStr_1 + "</a>";
+  var elem2 = elem.content.firstChild;
+  curScript_1.parentNode.insertBefore(elem2, curScript_1);
+}
+
+function toggleShowImage2(elemIdStr, img_fn_1, obfStr_1)
+{
+  // function myFunction() {
+  // var x = document.getElementById("myDIV");
+  // debugger; 
+
+  var elem = document.getElementById(elemIdStr);
+
+  if (elem.innerText === obfStr_1) 
+  {
+    elem.innerHTML = '<br><img src="' + img_fn_1 + '" /><br>'; // note .innerHTML here (overriding '. innerText')
+  } 
+  else 
+  {
+    elem.innerText = obfStr_1; // note .innerText here
+  }
+}
 
 /*
 # ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
