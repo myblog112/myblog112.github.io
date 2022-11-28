@@ -96,8 +96,10 @@ function makeQuizElemV5Try1(encStr_1, obfStr_1, curScript_1)
   curScript_1.parentNode.insertBefore(elem2, curScript_1);
 }
 
-// Example: 
-// [<script name="problem">makeImgQuizElem1('img/_shibashi_set_with_karen_pics_try_1/001_001_1.png','&lt;hidden&gt;', document.currentScript);</script>]
+    /*
+    Example (&lt;script&gt; was replaced with <script_element_1> otherwise browser 'explodes on me!'):
+    [<script_element_1 name='image_such_and_such'>makeImgQuizElem1('img/01.png','&lt;hidden&gt;', document.currentScript);</script_element_1>]
+    */
 function makeImgQuizElem1(img_fn_1, obfStr_1, curScript_1)
 {
   // debugger;
